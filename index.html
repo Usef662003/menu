@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فطاري وائل | Wael Pastery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css"
+    integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1a6b35;
+      --green-dark: #0d2818;
+      --green-light: #4ade80;
+      --green-mid: #22c55e;
+      --cream: #fefdfb;
+      --bg: #fafaf9;
+      --text-dark: #1a1a1a;
+      --text-mid: #64748b;
+      --text-light: #94a3b8;
+      --card-bg: #ffffff;
+      --border: rgba(0, 0, 0, 0.06);
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.03), 0 12px 24px rgba(0, 0, 0, 0.06);
+      --nav-height: 64px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+      .img{
+        width:20% ;
+        margin: auto;
+      }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+      padding: 0px 24px 100px ;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-size: 0.4em;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--green-light);
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 16px;
+    }
+
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 32px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-contacts span {
+      opacity: 0.7;
+    }
+
+    .hero-contacts strong {
+      opacity: 1;
+      margin-right: 4px;
+    }
+
+    /* ── NAVBAR ── */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      /* sits right at top; negative margin pulls it up over the hero bottom */
+      margin-top: -36px;
+    }
+
+    .sticky-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      width: calc(100% - 32px);
+      max-width: fit-content;
+      margin: 0 auto;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 0 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+    }
+
+    .sticky-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 4px;
+      min-width: max-content;
+      padding: 8px 4px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-mid);
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .nav-btn:hover {
+      background: #f1f5f9;
+      color: var(--green);
+    }
+
+    .nav-btn.active {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(26, 107, 53, 0.35);
+    }
+
+    /* Spacer so sections don't hide under nav */
+    .nav-spacer {
+      height: 24px;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* SECTION — scroll-margin accounts for sticky nav height + breathing room */
+    .menu-section {
+      margin-bottom: 48px;
+      scroll-margin-top: calc(var(--nav-height) + 24px);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: var(--green);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ITEMS */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 10px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      gap: 12px;
+    }
+
+    .menu-item:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--green-light);
+    }
+
+    .item-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .item-name small {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .item-price {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--green);
+      white-space: nowrap;
+      background: #f0fdf4;
+      border-radius: 6px;
+      padding: 6px 12px;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .item-price::after {
+      content: ' ج';
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+
+    /* SUBSECTION */
+    .sub-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 24px 0 12px;
+    }
+
+    /* NOTE */
+    .menu-note {
+      background: var(--green);
+      color: #fff;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 0.9rem;
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer strong {
+      color: #fff;
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-contacts {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="img">
+      <img src="image/Elegant crown with Arabic text.png" alt="">
+    </div>
+        <div>
+      <a href="https://www.google.com/maps?q=72+Othman+Ibn+Affan+Misr+Al+Gadida" target="_blank"
+        style="color:white; text-decoration:none;">
+        <i class="fa-solid fa-location-dot" style="color: rgb(255, 255, 255);"></i>
+        72 عثمان بن عفان، مصر الجديدة
+      </a>
+    </div>
+
+    <div>
+      <i class="fa-solid fa-phone" style="color: rgb(255, 255, 255);"></i>
+      <a href="tel:0227762688" style="color:white; text-decoration:none;">
+        27762688
+      </a>
+
+      –
+
+      <a href="tel:01001228486" style="color:white; text-decoration:none;">
+        01001228486
+      </a>
+
+      –
+
+      <a href="tel:01210046107" style="color:white; text-decoration:none;">
+        01210046107
+      </a>
+    </div>
+  </header>
+
+  <!-- NAVBAR — sticky wrapper sits at top:0, nav pill floats inside -->
+  <div class="nav-wrapper">
+    <nav class="sticky-nav" id="mainNav">
+      <div class="nav-inner">
+        <button class="nav-btn" data-target="drinks">المشروبات</button>
+        <button class="nav-btn" data-target="starters">المقبلات</button>
+        <button class="nav-btn" data-target="additions">الإضافات</button>
+        <button class="nav-btn" data-target="sweet-fasting">فطائر صيامى حلو</button>
+        <button class="nav-btn" data-target="sweet">فطائر الحلو</button>
+        <button class="nav-btn" data-target="savory-fasting">فطائر صيامى حادق</button>
+        <button class="nav-btn" data-target="mshltit">فطائر مشلتت</button>
+        <button class="nav-btn" data-target="cheese-veg">جبنة وخضروات</button>
+        <button class="nav-btn" data-target="mixed">فطائر المشكل</button>
+        <button class="nav-btn" data-target="pizza">بيتزا شرقي</button>
+        <button class="nav-btn" data-target="specials">الحلو عند وائل</button>
+      </div>
+    </nav>
+  </div>
+
+  <div class="nav-spacer"></div>
+
+  <main>
+    <!-- DRINKS -->
+    <section class="menu-section" id="drinks">
+      <h2 class="section-title">المشروبات</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">مياه معدنية كبيرة</span><span class="item-price">20</span></div>
+        <div class="menu-item"><span class="item-name">مياه معدنية صغيرة</span><span class="item-price">10</span></div>
+        <div class="menu-item"><span class="item-name">بيبسي – سفن أب – ميرندا – برتقال – ميرندا تفاح</span><span
+            class="item-price">25</span></div>
+        <div class="menu-item"><span class="item-name">7 Cola جميع الأنواع</span><span class="item-price">25</span>
+        </div>
+        <div class="menu-item"><span class="item-name">بيبسي – سفن أب – ميرندا (1 Liter)</span><span
+            class="item-price">45</span></div>
+      </div>
+    </section>
+    <!-- STARTERS -->
+    <section class="menu-section" id="starters">
+      <h2 class="section-title">المقبلات</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">علبة جبنة قديمة صغيرة</span><span class="item-price">30</span>
+        </div>
+        <div class="menu-item"><span class="item-name">علبة جبنة قديمة وسط</span><span class="item-price">40</span>
+        </div>
+        <div class="menu-item"><span class="item-name">علبة مخلل وسط</span><span class="item-price">10</span></div>
+        <div class="menu-item"><span class="item-name">علبة طماطم منبلة كبير</span><span class="item-price">50</span>
+        </div>
+        <div class="menu-item"><span class="item-name">علبة طماطم منبلة صغير</span><span class="item-price">30</span>
+        </div>
+        <div class="menu-item"><span class="item-name">علبة تومية</span><span class="item-price">30</span></div>
+        <div class="menu-item"><span class="item-name">علبة كول سلو كبيرة</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">علبة كول سلو وسط</span><span class="item-price">30</span></div>
+        <div class="menu-item"><span class="item-name">علبة بطاطس منبلة صغيرة</span><span class="item-price">30</span>
+        </div>
+        <div class="menu-item"><span class="item-name">علبة بطاطس منبلة كبيرة</span><span class="item-price">50</span>
+        </div>
+        <div class="menu-item"><span class="item-name">علبة صوص حار</span><span class="item-price">30</span></div>
+        <div class="menu-item"><span class="item-name">سرفيس جبنة قديمة سفرة</span><span class="item-price">20</span>
+        </div>
+        <div class="menu-item"><span class="item-name">سرميس مخلل سفرة</span><span class="item-price">10</span></div>
+        <div class="menu-item"><span class="item-name">سرفيس بطاطس سفرة</span><span class="item-price">20</span></div>
+        <div class="menu-item"><span class="item-name">بطاطس كرنكل كاتشب ومايونيز وتوابل</span><span
+            class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">بطاطس كرنكل <small>شيدر – رانش – تكساس –
+              باربيكيو</small></span><span class="item-price">65</span></div>
+        <div class="menu-item"><span class="item-name">صوابع موتزاريلا أسيك (أربع صوابع)</span><span
+            class="item-price">65</span></div>
+      </div>
+    </section>
+    <!-- ADDITIONS -->
+    <section class="menu-section" id="additions">
+      <h2 class="section-title">الإضافات</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">بيض</span><span class="item-price">10</span></div>
+        <div class="menu-item"><span class="item-name">أنشوجة</span><span class="item-price">90</span></div>
+        <div class="menu-item"><span class="item-name">مشروم</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">روزبيف – روست رومي</span><span class="item-price">70</span></div>
+        <div class="menu-item"><span class="item-name">زيتون</span><span class="item-price">20</span></div>
+        <div class="menu-item"><span class="item-name">صوص باركيو</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">جبنة رومي أو موتزاريلا أو كبري</span><span
+            class="item-price">60</span></div>
+        <div class="menu-item"><span class="item-name">صوص شيدر</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">سلامي – بيبروني</span><span class="item-price">70</span></div>
+        <div class="menu-item"><span class="item-name">صوص رانش</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">جبنة جودة أو ريكفورد أو شيدر</span><span
+            class="item-price">80</span></div>
+        <div class="menu-item"><span class="item-name">صوص تشيلي</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">سوسيس</span><span class="item-price">60</span></div>
+        <div class="menu-item"><span class="item-name">صوص تكساس</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">بسطرمة أو لحمة</span><span class="item-price">80</span></div>
+        <div class="menu-item"><span class="item-name">بيف بيكون</span><span class="item-price">80</span></div>
+        <div class="menu-item"><span class="item-name">سجق دبل</span><span class="item-price">100</span></div>
+        <div class="menu-item"><span class="item-name">سجق ضاني</span><span class="item-price">120</span></div>
+      </div>
+    </section>
+    <!-- SWEET FASTING -->
+    <section class="menu-section" id="sweet-fasting">
+      <h2 class="section-title">فطائر صيامى حلو</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">فطيرة سادة بالسكر</span><span class="item-price">70</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بعسل النحل</span><span class="item-price">100</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة سكر وقرفة</span><span class="item-price">100</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالموز والتفاح</span><span class="item-price">120</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بالتفاح والقرفة</span><span class="item-price">120</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بمربى الفراولة</span><span class="item-price">120</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بالزبيب</span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بجوز الهند</span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالزبيب وجوز الهند</span><span
+            class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمسكرات <small>سوداني – زبيب – جوز –
+              الهند</small></span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمكسرات <small>بندق – زبيب – جوز –
+              الهند</small></span><span class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمكسرات <small>فستق – زبيب</small></span><span
+            class="item-price">210</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة</span><span class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والموز</span><span
+            class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والتفاح</span><span
+            class="item-price">210</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة <small>أناناس – خوخ أو تفاح –
+              موز</small></span><span class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والكيوي</span><span
+            class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والكريز</span><span
+            class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمربى والزبيب وجوز الهند</span><span
+            class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمربى والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمربى والمكسرات <small>بندق – لوز – زبيب – جوز
+              الهند</small></span><span class="item-price">220</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمربى والمكسرات <small>فستق – زبيب</small></span><span
+            class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة عسل النحل والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">150</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة عسل النحل والمكسرات <small>بندق – لوز – زبيب – جوز
+              الهند</small></span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة عسل النحل والمكسرات <small>فستق – زبيب</small></span><span
+            class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه <small>مربى – أناناس – خوخ</small></span><span
+            class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه <small>مربى – تفاح – موز</small></span><span
+            class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه بالمكسرات والمربى
+            <small>سوداني</small></span><span class="item-price">230</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه بالمكسرات والمربى
+            <small>بندق</small></span><span class="item-price">280</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه بالمكسرات والمربى
+            <small>فستق</small></span><span class="item-price">320</span></div>
+      </div>
+      
+    </section>
+    <!-- SWEET PASTERY -->
+    <section class="menu-section" id="sweet">
+      <h2 class="section-title">فطائر الحلو</h2>
+      <p class="sub-label">فطائر الحلو الأساسية</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">فطيرة مخصوص بالسكر</span><span class="item-price">70</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالسكر واللبن</span><span class="item-price">100</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة كراميل وكاستر</span><span class="item-price">150</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة تفاح وكراميل</span><span class="item-price">150</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بسبوسة</span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كنافة</span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بسبوسة وكنافة</span><span class="item-price">120</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بالسكر والقرفة</span><span class="item-price">100</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بالسكر والقرفة واللبن</span><span
+            class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالتفاح والقرفة</span><span class="item-price">120</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة مربى الفراولة</span><span class="item-price">120</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكيري وعسل النحل</span><span
+            class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالزبيب</span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بجوز الهند</span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالزبيب وجوز الهند</span><span
+            class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمكسرات <small>كاجو – زبيب – جوز
+              الهند</small></span><span class="item-price">190</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمكسرات <small>بندق – لوز – اسب – جوز
+              الهند</small></span><span class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمكسرات <small>فستق – زبيب</small></span><span
+            class="item-price">210</span></div>
+      </div>
+      <p class="sub-label">فطائر القشطة</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والسكر</span><span class="item-price">120</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطير بالقشطة وعسل النحل</span><span class="item-price">150</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة القشطة كنافة وبسبوسة</span><span
+            class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والعسل كنافة وبسبوسة</span><span
+            class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والسكر والفواكه <small>خوخ أو موز أو
+              تفاح</small></span><span class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة وعسل النحل والفواكه <small>خوخ أو أناناس أو موز أو
+              تفاح</small></span><span class="item-price">210</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والكريز</span><span class="item-price">180</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والكيوي</span><span class="item-price">180</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمربى</span><span class="item-price">150</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمربى والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمربى والمكسرات <small>بندق – لوز – زبيب – جوز
+              الهند</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمربى والمكسرات <small>فستق –
+              زبيب</small></span><span class="item-price">290</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والزبيب وجوز الهند</span><span
+            class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمربى والزبيب وجوز الهند</span><span
+            class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمكسرات <small>بندق – لوز – زبيب – جوز
+              الهند</small></span><span class="item-price">230</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمكسرات <small>فستق – زبيب</small></span><span
+            class="item-price">270</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة والمكسرات والنحل <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة وعسل النحل والمكسرات <small>بندق – لوز – زبيب – جوز
+              الهند</small></span><span class="item-price">250</span></div>
+      </div>
+      <p class="sub-label">فطائر الكاستر</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر</span><span class="item-price">120</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر بسبوسة وكنافة</span><span
+            class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر والمكسرات <small>بندق – لوز – زبيب – جوز
+              الهند</small></span><span class="item-price">220</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر والمكسرات <small>فستق – زبيب</small></span><span
+            class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر العربي والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر والعربي والمكسرات <small>فستق –
+              زبيب</small></span><span class="item-price">290</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر والقشطة والسكر</span><span
+            class="item-price">150</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر والمربى والمكسرات <small>بندق – جوز
+              الهند</small></span><span class="item-price">290</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر والقشطة والعسل</span><span
+            class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر والشيكولاتة</span><span
+            class="item-price">220</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر عسل النحل والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر وعسل النحل والمكسرات <small>بندق – زبيب – جوز
+              الهند</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكاستر وعسل النحل والمكسرات <small>فستق –
+              زبيب</small></span><span class="item-price">290</span></div>
+      </div>
+      <p class="sub-label">فطائر الشيكولاتة</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">فطيرة بالقشطة وعسل النحل والمكسرات <small>فستق –
+              زبيب</small></span><span class="item-price">280</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة النوتيلا</span><span
+            class="item-price">180</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والموز</span><span
+            class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والقشطة</span><span
+            class="item-price">220</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والكيوي</span><span
+            class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والأناناس والخوخ</span><span
+            class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والكريز</span><span
+            class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والتفاح</span><span
+            class="item-price">210</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والكنافة</span><span
+            class="item-price">230</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والكنافة والموز</span><span
+            class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">230</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والمكسرات <small>بندق – لوز – زبيب – جوز
+              الهند</small></span><span class="item-price">280</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والمكسرات <small>فستق – زبيب – جوز
+              الهند</small></span><span class="item-price">320</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والقشطة والمكسرات <small>سوداني – زبيب – جوز
+              الهند</small></span><span class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة القشطة والمكسرات <small>بندق – لوز – زبيب – جوز
+              الهند</small></span><span class="item-price">310</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالشيكولاتة والقشطة والمكسرات <small>فستق – زبيب – جوز
+              الهند</small></span><span class="item-price">350</span></div>
+      </div>
+      <p class="sub-label">فطائر كوكتيل فواكه</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه <small>كاستر – مربى – تفاح –
+              موز</small></span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه <small>كاستر – مربى – تفاح –
+              خوخ</small></span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه <small>كاستر – مربى – تفاح –
+              كريز</small></span><span class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه بالقشطة والمكسرات <small>كاستر – قشطة – مربى –
+              فواكه – زبيب – جوز هند – سوداني</small></span><span class="item-price">270</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه بالقشطة والمكسرات <small>كاستر – قشطة – مربى –
+              فواكه – زبيب – جوز هند – بندق</small></span><span class="item-price">320</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كوكتيل فواكه بالقشطة والمكسرات <small>كاستر – قشطة – مربى –
+              فواكه – زبيب – جوز هند – فستق</small></span><span class="item-price">360</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة تورتة وائل <small>كاستر – بسبوسة – كنافة – مربى – قشطة –
+              موز – كريز</small></span><span class="item-price">320</span></div>
+      </div>
+    </section>
+    <!-- SAVORY FASTING -->
+    <section class="menu-section" id="savory-fasting">
+      <h2 class="section-title">فطائر صيامى حادق</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">فطيرة بالبطاطس البوريه <small>بطاطس – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالخضروات <small>زيتون – طماطم – فلفل</small></span><span
+            class="item-price">140</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالمشروم <small>مشروم – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">190</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة تونة قطع <small>تونة قطع – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">210</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالأنشوجة <small>أنشوجة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">220</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالجمبري <small>جمبري مشوي – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">390</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالكابوريا <small>كابوريا – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">270</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بالسي فود <small>كالبماري – كابوريا – جمبري مشوي – زيتون –
+              طماطم – فلفل</small></span><span class="item-price">430</span></div>
+      </div>
+    </section>
+    <!-- MSHLTAT -->
+    <section class="menu-section" id="mshltit">
+      <h2 class="section-title">فطائر مشلتت</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">مشلتت L</span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">مشلتت XL</span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">مشلتت XXL</span><span class="item-price">300</span></div>
+        <div class="menu-item"><span class="item-name">علبة جبنة قديمة وسط</span><span class="item-price">40</span>
+        </div>
+        <div class="menu-item"><span class="item-name">علبة جبنة قديمة صغيرة</span><span class="item-price">30</span>
+        </div>
+        <div class="menu-item"><span class="item-name">علبة قشطة</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">علبة عسل النحل</span><span class="item-price">50</span></div>
+        <div class="menu-item"><span class="item-name">علبة عسل أسود</span><span class="item-price">35</span></div>
+      </div>
+    </section>
+    <!-- CHEESE & VEG -->
+    <section class="menu-section" id="cheese-veg">
+      <h2 class="section-title">فطائر الجبنة والخضروات</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">بالجبنة البيضاء والخضروات</span><span
+            class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">بالجبنة الرومي والخضروات</span><span
+            class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">بالجبنة الكبري والخضروات + الموتزاريلا</span><span
+            class="item-price">230</span></div>
+        <div class="menu-item"><span class="item-name">بالجبنة الموتزاريلا والخضروات</span><span
+            class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">بالجبنة الشيدر والخضروات</span><span
+            class="item-price">210</span></div>
+        <div class="menu-item"><span class="item-name">بالجبنة الجودة والخضروات</span><span
+            class="item-price">210</span></div>
+        <div class="menu-item"><span class="item-name">بالجبنة الريكفورد والخضروات</span><span
+            class="item-price">210</span></div>
+      </div>
+    </section>
+    <!-- MIXED -->
+    <section class="menu-section" id="mixed">
+      <h2 class="section-title">فطائر المشكل</h2>
+      <p class="sub-label">فطائر المشكل (صيامى)</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">مشكل جبن <small>رومي – موتزاريلا – كبري – ريبون – طماطم –
+              فلفل</small></span><span class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">مشكل جبن <small>رومي – موتزاريلا – شيدر – ريبون – طماطم –
+              فلفل</small></span><span class="item-price">310</span></div>
+        <div class="menu-item"><span class="item-name">مشكل تونة قطع <small>بيض – تونة قطع – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">مشكل بالأنشوجة <small>أنشوجة – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">270</span></div>
+        <div class="menu-item"><span class="item-name">مشكل بالجمبري <small>جمبري مشوي – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">440</span></div>
+        <div class="menu-item"><span class="item-name">مشكل كابوريا <small>كابوريا – زيتون – جبنة – طماطم –
+              فلفل</small></span><span class="item-price">320</span></div>
+        <div class="menu-item"><span class="item-name">مشكل سي فود <small>جمبري مشوي – كالبماري – كابوريا – زيتون –
+              طماطم – فلفل</small></span><span class="item-price">480</span></div>
+      </div>
+      <p class="sub-label">فطائر المشكل (مع اللحوم)</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">مشكل بالسجق <small>بيض – سجق – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">مشكل سجق ضاني <small>بيض – سجق صاني – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">مشكل بالسوسيس <small>بيض – سوسيس – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">مشكل باللحمة <small>بيض – لحمة – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">مشكل لحوم سجق + لحمة + سوسيس <small>بيض – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">360</span></div>
+        <div class="menu-item"><span class="item-name">مشكل لحوم سجق + لحمة + بسطرمة <small>بيض – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">360</span></div>
+        <div class="menu-item"><span class="item-name">مشكل لحوم سجق + سلامي + روزبيف <small>بيض – جبنة – زيتون – طماطم
+              – فلفل</small></span><span class="item-price">360</span></div>
+        <div class="menu-item"><span class="item-name">لحوم + سجق + بيف بيكون + سوسيس <small>بيض – جبنة – زيتون – طماطم
+              – فلفل</small></span><span class="item-price">380</span></div>
+        <div class="menu-item"><span class="item-name">مشكل لحوم بسطرمة + سلامي + روزبيف <small>بيض – جبنة – زيتون –
+              طماطم – فلفل</small></span><span class="item-price">380</span></div>
+        <div class="menu-item"><span class="item-name">مشكل لحوم سلامي + مشروم + سوسيس <small>ابيض حبة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">350</span></div>
+        <div class="menu-item"><span class="item-name">مشكل لحوم سجق + بولوبيف + بسطرمة <small>بيض – جبنة – زيتون –
+              طماطم – فلفل</small></span><span class="item-price">390</span></div>
+        <div class="menu-item"><span class="item-name">مشكل برجر لحمة أنجوس <small>موزاريلا – شيدر – صوص تكساس – بصل
+              مكرمل – غبار فلفل الألوان</small></span><span class="item-price">430</span></div>
+        <div class="menu-item"><span class="item-name">مشكل بيف بيكون <small>بيض – بيف بيكون – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">مشكل بالبسطرمة <small>بيض – بسطرمة – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">مشكل بالكوندريف <small>بيض – كوندريف – جبنة – طماطم –
+              فلفل</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">مشكل سلامي <small>بيض – سلامي – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">كوردون بلو <small>بيض – كرسبي – روزبيف – صوص شيدر – جبنة – زيتون
+              – طماطم – فلفل</small></span><span class="item-price">380</span></div>
+        <div class="menu-item"><span class="item-name">مشكل روز بيف <small>بيض – روزبيف – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">مشكل رومي مدخن <small>بيض – رومي مدخن – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">مشكل بيروني <small>بيض – بيروني – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">مشكل فاهيتا فراخ <small>بيض – فراخ – زيتون – جبنة – فلفل الألوان
+              – طماطم</small></span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">مشكل كرسبي <small>بيض – كرسبي – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">مشكل كرسبي + تركي <small>بيض – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">330</span></div>
+        <div class="menu-item"><span class="item-name">مشكل كرسبي + ماهينا <small>ابيض – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">340</span></div>
+        <div class="menu-item"><span class="item-name">مشكل فاهيتا + مشروم <small>بيض – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">300</span></div>
+        <div class="menu-item"><span class="item-name">مشكل كرسبي + روزبيف + مشروم <small>بيض – جبنة – زيتون – طماطم –
+              فلفل</small></span><span class="item-price">380</span></div>
+      </div>
+    </section>
+    <!-- PIZZA -->
+    <section class="menu-section" id="pizza">
+      <h2 class="section-title">بيتزا شرقي</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">بيتزا بالسجق</span><span class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا بالرومي والموتزاريلا</span><span
+            class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا سجق ضاني</span><span class="item-price">260</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا بالأنشوجة</span><span class="item-price">270</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا بالسوسيس</span><span class="item-price">240</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا باللحمة</span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا بالتونة القطع</span><span class="item-price">260</span>
+        </div>
+        <div class="menu-item"><span class="item-name">بيتزا بالبسطرمة</span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا بالجمبري</span><span class="item-price">450</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا بالكوندريف</span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا سي فود</span><span class="item-price">490</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا سلامي</span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا بالمشروم</span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا روزبيف</span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا بالفراخ فاهيتا</span><span class="item-price">250</span>
+        </div>
+        <div class="menu-item"><span class="item-name">بيتزا رومي مدخن</span><span class="item-price">250</span></div>
+        <div class="menu-item"><span class="item-name">بيتزا كرسبي</span><span class="item-price">260</span></div>
+      </div>
+    </section>
+    <!-- SPECIALS -->
+    <section class="menu-section" id="specials">
+      <h2 class="section-title">الحلو عند وائل</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="item-name">فطيرة لوتس</span><span class="item-price">210</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة لوتس + نوتيلا</span><span class="item-price">260</span>
+        </div>
+        <div class="menu-item"><span class="item-name">فطيرة وايت شوكلت</span><span class="item-price">160</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة كندر</span><span class="item-price">170</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بستاشيو</span><span class="item-price">200</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة دبي</span><span class="item-price">290</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة فور سيزون <small>كاستر – نوتيلا – لوتس – كندر –
+              بستاشيو</small></span><span class="item-price">320</span></div>
+        <div class="menu-item"><span class="item-name">فطيرة بلاك فورسيت <small>نوتيلا – لوتس – فواكه –
+              مكسرات</small></span><span class="item-price">320</span></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <footer>
+
+  </footer> -->
+
+  <script>
+    (function () {
+      const navBtns = document.querySelectorAll('.nav-btn');
+      const sections = document.querySelectorAll('.menu-section');
+      const NAV_H = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+
+      /* ── 1. CLICK: scroll section into view with offset ── */
+      navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = document.getElementById(btn.dataset.target);
+          if (!target) return;
+
+          // Temporarily disable IntersectionObserver-driven updates while scrolling
+          isScrollingFromClick = true;
+          clearTimeout(scrollTimeout);
+
+          // Set active immediately on click for instant feedback
+          setActive(btn.dataset.target);
+
+          // scroll-margin-top handles the offset via CSS; scrollIntoView is enough
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Re-enable observer after animation finishes (~800ms)
+          scrollTimeout = setTimeout(() => { isScrollingFromClick = false; }, 900);
+        });
+      });
+
+      /* ── 2. SCROLL: IntersectionObserver for accurate active state ── */
+      let isScrollingFromClick = false;
+      let scrollTimeout;
+
+      // rootMargin: top = -(nav height + 1px), bottom = shrink to top 40% of viewport
+      // This means a section is "active" when its top edge enters the top 40% zone
+      const observer = new IntersectionObserver(entries => {
+        if (isScrollingFromClick) return;
+
+        // Find the entry that is intersecting AND closest to the top
+        let best = null;
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!best || entry.boundingClientRect.top < best.boundingClientRect.top) {
+              best = entry;
+            }
+          }
+        });
+
+        if (best) setActive(best.target.id);
+      }, {
+        rootMargin: `-${NAV_H + 8}px 0px -55% 0px`,
+        threshold: 0
+      });
+
+      sections.forEach(s => observer.observe(s));
+
+      /* ── 3. Also update on scroll for sections already partially visible ── */
+      // Fallback: on every scroll tick, highlight the section whose top is just
+      // below the nav and closest to it.
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (isScrollingFromClick || ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          ticking = false;
+          updateActiveFromScroll();
+        });
+      }, { passive: true });
+
+      function updateActiveFromScroll() {
+        const offset = NAV_H + 32; // nav height + breathing room
+        let current = null;
+        sections.forEach(s => {
+          const rect = s.getBoundingClientRect();
+          if (rect.top <= offset) current = s.id;
+        });
+        if (current) setActive(current);
+      }
+
+      /* ── helpers ── */
+      function setActive(id) {
+        navBtns.forEach(b => {
+          b.classList.toggle('active', b.dataset.target === id);
+        });
+        // Auto-scroll nav pill into view
+        const activeBtn = document.querySelector(`.nav-btn[data-target="${id}"]`);
+        if (activeBtn) {
+          activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+
+      // Set initial active state on load
+      updateActiveFromScroll();
+      if (!document.querySelector('.nav-btn.active')) {
+        navBtns[0] && navBtns[0].classList.add('active');
+      }
+    })();
+  </script>
+</body>
+
+</html>
